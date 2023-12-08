@@ -1,63 +1,31 @@
-public abstract class IStorage {
-	private User[] users;
-	private Group[] groups;
-	private Members[] members;
-	private Subscription[] subs;
+package storage;
 
-	public Storage() throws Exception{
+import models.*;
+
+public abstract class IStorage {
+	protected User[] users;
+	protected Group[] groups;
+	protected Members[] members;
+	protected Subscription[] subs;
+
+	public IStorage() throws Exception{
+		init();
+	}
+
+	protected void init() throws Exception{
 		parseUsers();
 		parseGroups();
-		parseSubscriptions();
 		parseMembers();
+		parseSubscriptions();
 	} 
 
-	private void parseUsers() throws Exception{
-		Scanner in = new Scanner(new File("./resources/users.txt"));
-		int userCount = Integer.parseInt(in.nextLine());
-		users = new User[userCount];
+	protected abstract void parseUsers() throws Exception;
 
-		for(int i = 0; i < userCount; i++){
-			String[] data = in.nextLine().split(" ");
+	protected abstract void parseSubscriptions() throws Exception;
 
-			users[i] = new User(Integer.parseInt(data[0]), data[1], data[2]);
-		}
-	}
+	protected abstract void parseGroups() throws Exception;
 
-	private void parseSubscriptions() throws Exception{
-		Scanner in = new Scanner(new File("./resources/subscription.txt"));
-		int subsCount = Integer.parseInt(in.nextLine());
-	 	subs = new Subscription[subsCount];
-
-		for(int i = 0; i < subsCount; i++){
-			String[] data = in.nextLine().split(" ");
-
-			subs[i] = new Subscription(Integer.parseInt(data[0]), Integer.parseInt(data[1]));
-		}
-	}
-
-	private void parseGroups() throws Exception {
-		Scanner in = new Scanner(new File("./resources/groups.txt"));
-		int groupCount = Integer.parseInt(in.nextLine());
-		groups = new Group[groupCount];
-
-		for(int i = 0; i < groupCount; i++){
-			String[] data = in.nextLine().split(" ");
-
-			groups[i] = new Group(Integer.parseInt(data[0]), data[1], data[2], getUserById(Integer.parseInt(data[3])));
-		}
-	}
-
-	private void parseMembers() throws Exception{
-		Scanner in = new Scanner(new File("./resources/members.txt"));
-		int membersCount = Integer.parseInt(in.nextLine());
-		members = new Members[membersCount];
-
-		for(int i = 0; i < membersCount; i++){
-			String[] data = in.nextLine().split(" ");
-
-			members[i] = new Members(getUserById(Integer.parseInt(data[0])), getGroupById(Integer.parseInt(data[1])));
-		}
-	}
+	protected abstract void parseMembers() throws Exception;
 
 	public User getUserById(int id) throws Exception{
 		for(User user : users){

@@ -4,21 +4,13 @@ import models.*;
 import java.util.Scanner;
 import java.io.File;
 
-public class Storage {
-
-	private User[] users;
-	private Group[] groups;
-	private Members[] members;
-	private Subscription[] subs;
+public class Storage extends IStorage {
 
 	public Storage() throws Exception{
-		parseUsers();
-		parseGroups();
-		parseSubscriptions();
-		parseMembers();
-	} 
+		init();
+	}
 
-	private void parseUsers() throws Exception{
+	protected void parseUsers() throws Exception{
 		Scanner in = new Scanner(new File("./resources/users.txt"));
 		int userCount = Integer.parseInt(in.nextLine());
 		users = new User[userCount];
@@ -30,7 +22,7 @@ public class Storage {
 		}
 	}
 
-	private void parseSubscriptions() throws Exception{
+	protected void parseSubscriptions() throws Exception{
 		Scanner in = new Scanner(new File("./resources/subscription.txt"));
 		int subsCount = Integer.parseInt(in.nextLine());
 	 	subs = new Subscription[subsCount];
@@ -42,7 +34,7 @@ public class Storage {
 		}
 	}
 
-	private void parseGroups() throws Exception {
+	protected void parseGroups() throws Exception {
 		Scanner in = new Scanner(new File("./resources/groups.txt"));
 		int groupCount = Integer.parseInt(in.nextLine());
 		groups = new Group[groupCount];
@@ -54,7 +46,7 @@ public class Storage {
 		}
 	}
 
-	private void parseMembers() throws Exception{
+	protected void parseMembers() throws Exception{
 		Scanner in = new Scanner(new File("./resources/members.txt"));
 		int membersCount = Integer.parseInt(in.nextLine());
 		members = new Members[membersCount];
@@ -64,49 +56,5 @@ public class Storage {
 
 			members[i] = new Members(getUserById(Integer.parseInt(data[0])), getGroupById(Integer.parseInt(data[1])));
 		}
-	}
-
-	public User getUserById(int id) throws Exception{
-		for(User user : users){
-			if(user.getId() == id) return user;
-		}
-
-		return null;
-	}
-
-	public Group getGroupById(int id) throws Exception{
-		for(Group group : groups){
-			if(group.getId() == id) return group;
-		}
-
-		return null;
-	}
-
-	public int getGroupCountOfMembers(Group group){
-		int count = 0;
-
-		for(User user : users){
-			for(Members member : members){
-				if(user.equals(member.getUser()) && group.equals(member.getGroup())) count++;
-			}
-		}
-
-		return count;
-	}
-
-	public User[] getUsers(){
-		return users;
-	}
-
-	public Group[] getGroups(){
-		return groups;
-	}
-
-	public Members[] getMembers(){
-		return members;
-	}
-
-	public Subscription[] getSubs(){
-		return subs;
 	}
 }
