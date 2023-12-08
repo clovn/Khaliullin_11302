@@ -1,3 +1,5 @@
+package models;
+
 public class Subscription {
 	private int user1Id;
 	private int user2Id;
