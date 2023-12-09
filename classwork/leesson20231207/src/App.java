@@ -1,13 +1,16 @@
 import services.Services;
 import storage.*;
+import models.Group;
 
 public class App {
 	public static void main(String[] args) throws Exception{
-		IStorage db = new MockStorage();
+		IStorage db = new FileStorage();
 		db.init();
 		Services a = new Services(db);
-		System.out.println(a.getUserNameWithMaxSubsFromHisCity());
-		System.out.println(a.getGroupNameWithSubsFromAnotherCity());
-		System.out.println(a.getGroupNameWhereSubsFromAdminAnotherCity());
+		for(Group group : db.getGroups()){
+			System.out.print(a.isFriendly1(group) + " ");
+			System.out.print(a.isFriendly2(group) + " ");
+			System.out.print(a.isFriendly3(group) + "\n");
+		}
 	}
 }

@@ -51,6 +51,21 @@ public abstract class Storage implements IStorage {
 		return count;
 	}
 
+	public User[] getGroupMembers(Group group){
+		int count = 0;
+		User[] res = new User[count];
+
+		for(Members member : members){
+			if(member.getGroup().equals(group)){
+				res = new User[++count];
+				res[count] = member.getUser();
+
+			}
+		}
+
+		return res;
+	}
+
 	public User[] getUsers(){
 		return users;
 	}

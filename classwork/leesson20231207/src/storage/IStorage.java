@@ -18,4 +18,6 @@ public interface IStorage {
 	Members[] getMembers();
 
 	Subscription[] getSubs();
+
+	User[] getGroupMembers(Group group);
 }

@@ -84,4 +84,57 @@ public class Services{
 
 		return answer;
 	}
+
+	public boolean isFriendly1(Group group) throws Exception{
+		Members[] members = data.getMembers();
+		for(int i = 0; i < members.length; i++){
+			for(int j = i + 1; j < members.length; j++){
+				if(!isFriends(members[i].getUser(), members[j].getUser()) && members[i].getGroup().equals(group) && members[j].getGroup().equals(group)) return false;
+			}
+		}
+
+		return true;
+	}
+
+	public boolean isFriendly2(Group group) throws Exception{
+		for(Members member : data.getMembers()){
+			if(member.getGroup().equals(group)){
+				boolean hasFriends = false;
+				for(Subscription sub : data.getSubs()){
+					if(isMember(group, data.getUserById(sub.getUser2Id())) && isFriends(data.getUserById(sub.getUser1Id()), data.getUserById(sub.getUser2Id())) && isMember(group, data.getUserById(sub.getUser2Id()))){
+						hasFriends = true;
+						break;
+					} 
+				}
+				if(!hasFriends){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
+	public boolean isFriendly3(Group group) throws Exception{
+		User[] subs = data.getGroupMembers(group);
+		return false;
+	}
+
+	private boolean isFriends(User user1, User user2) throws Exception{
+		boolean flag1 = false;
+		boolean flag2 = false;
+		for(Subscription sub : data.getSubs()){
+			if(sub.getUser1Id() == user1.getId() && sub.getUser2Id() == user2.getId()) flag1 = true;
+			if(sub.getUser2Id() == user1.getId() && sub.getUser1Id() == user2.getId()) flag2 = true;
+		}
+
+		return flag1&&flag2;
+	}
+
+	private boolean isMember(Group group, User user){
+		for(Members member : data.getMembers()){
+			if(member.getUser().equals(user) && member.getGroup().equals(group)) return true;
+		}
+
+		return false;
+	}
 }

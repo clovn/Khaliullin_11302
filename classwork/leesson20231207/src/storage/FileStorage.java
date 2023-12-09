@@ -7,7 +7,7 @@ import java.io.File;
 public class FileStorage extends Storage {
 
 	protected void parseUsers() throws Exception{
-		Scanner in = new Scanner(new File("./resources/users.txt"));
+		Scanner in = new Scanner(new File("./resources/Users.txt"));
 		int userCount = Integer.parseInt(in.nextLine());
 		users = new User[userCount];
 
@@ -19,7 +19,7 @@ public class FileStorage extends Storage {
 	}
 
 	protected void parseSubscriptions() throws Exception{
-		Scanner in = new Scanner(new File("./resources/subscription.txt"));
+		Scanner in = new Scanner(new File("./resources/Subscriptions.txt"));
 		int subsCount = Integer.parseInt(in.nextLine());
 	 	subs = new Subscription[subsCount];
 
@@ -31,7 +31,7 @@ public class FileStorage extends Storage {
 	}
 
 	protected void parseGroups() throws Exception {
-		Scanner in = new Scanner(new File("./resources/groups.txt"));
+		Scanner in = new Scanner(new File("./resources/Groups.txt"));
 		int groupCount = Integer.parseInt(in.nextLine());
 		groups = new Group[groupCount];
 
@@ -43,14 +43,14 @@ public class FileStorage extends Storage {
 	}
 
 	public void parseMembers() throws Exception{
-		Scanner in = new Scanner(new File("./resources/members.txt"));
+		Scanner in = new Scanner(new File("./resources/Members.txt"));
 		int membersCount = Integer.parseInt(in.nextLine());
 		members = new Members[membersCount];
 
 		for(int i = 0; i < membersCount; i++){
 			String[] data = in.nextLine().split(" ");
 
-			members[i] = new Members(getUserById(Integer.parseInt(data[0])), getGroupById(Integer.parseInt(data[1])));
+			members[i] = new Members(getUserById(Integer.parseInt(data[1])), getGroupById(Integer.parseInt(data[0])));
 		}
 	}
 }

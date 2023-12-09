@@ -27,4 +27,8 @@ public class  User {
 	public int getId(){
 		return id;
 	}
+
+	public boolean equals(User user){
+		return id == user.id;
+	}
 }
