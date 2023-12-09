@@ -2,72 +2,20 @@ package storage;
 
 import models.*;
 
-public abstract class IStorage {
-	protected User[] users;
-	protected Group[] groups;
-	protected Members[] members;
-	protected Subscription[] subs;
+public interface IStorage {
+	void init() throws Exception;
 
-	public IStorage() throws Exception{
-		init();
-	}
+	User getUserById(int id) throws Exception;
 
-	protected void init() throws Exception{
-		parseUsers();
-		parseGroups();
-		parseMembers();
-		parseSubscriptions();
-	} 
+	Group getGroupById(int id) throws Exception;
 
-	protected abstract void parseUsers() throws Exception;
+	int getGroupCountOfMembers(Group group);
 
-	protected abstract void parseSubscriptions() throws Exception;
+	User[] getUsers();
 
-	protected abstract void parseGroups() throws Exception;
+	Group[] getGroups();
 
-	protected abstract void parseMembers() throws Exception;
+	Members[] getMembers();
 
-	public User getUserById(int id) throws Exception{
-		for(User user : users){
-			if(user.getId() == id) return user;
-		}
-
-		return null;
-	}
-
-	public Group getGroupById(int id) throws Exception{
-		for(Group group : groups){
-			if(group.getId() == id) return group;
-		}
-
-		return null;
-	}
-
-	public int getGroupCountOfMembers(Group group){
-		int count = 0;
-
-		for(User user : users){
-			for(Members member : members){
-				if(user.equals(member.getUser()) && group.equals(member.getGroup())) count++;
-			}
-		}
-
-		return count;
-	}
-
-	public User[] getUsers(){
-		return users;
-	}
-
-	public Group[] getGroups(){
-		return groups;
-	}
-
-	public Members[] getMembers(){
-		return members;
-	}
-
-	public Subscription[] getSubs(){
-		return subs;
-	}
+	Subscription[] getSubs();
 }

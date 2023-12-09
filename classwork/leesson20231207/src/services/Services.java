@@ -1,12 +1,12 @@
 package services;
 
-import storage.Storage;
+import storage.IStorage;
 import models.*;
 
 public class Services{
-	private Storage data;
+	private IStorage data;
 
-	public Services(Storage st) throws Exception{
+	public Services(IStorage st) throws Exception{
 		data = st;
 	}
 
@@ -70,7 +70,6 @@ public class Services{
 
 		for(Group group : data.getGroups()){
 			String adminCity = group.getAdmin().getCity();
-			System.out.println(adminCity + " " + group.getName());
 			int count = 0;
 
 			for(User user : data.getUsers()){
@@ -80,7 +79,6 @@ public class Services{
 					}
 				}
 			}
-			System.out.println(count + " " + data.getGroupCountOfMembers(group));
 			if(count > data.getGroupCountOfMembers(group) / 2.0) answer += group.getName() + "\n";
 		}
 
