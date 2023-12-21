@@ -86,10 +86,11 @@ public class Services{
 	}
 
 	public boolean isFriendly1(Group group) throws Exception{
-		Members[] members = data.getMembers();
-		for(int i = 0; i < members.length; i++){
-			for(int j = i + 1; j < members.length; j++){
-				if(!isFriends(members[i].getUser(), members[j].getUser()) && members[i].getGroup().equals(group) && members[j].getGroup().equals(group)) return false;
+		User[] subs = data.getGroupMembers(group);
+
+		for(int i = 0; i < subs.length; i++){
+			for(int j = 0; j < subs.length; j++){
+				if(!isFriends(subs[i], subs[j])) return false;
 			}
 		}
 
@@ -97,26 +98,55 @@ public class Services{
 	}
 
 	public boolean isFriendly2(Group group) throws Exception{
-		for(Members member : data.getMembers()){
-			if(member.getGroup().equals(group)){
-				boolean hasFriends = false;
-				for(Subscription sub : data.getSubs()){
-					if(isMember(group, data.getUserById(sub.getUser2Id())) && isFriends(data.getUserById(sub.getUser1Id()), data.getUserById(sub.getUser2Id())) && isMember(group, data.getUserById(sub.getUser2Id()))){
-						hasFriends = true;
-						break;
-					} 
-				}
-				if(!hasFriends){
-					return false;
+		User[] subs = data.getGroupMembers(group);
+
+		for(int i = 0; i < subs.length; i++){
+			boolean flag = false;
+
+			for(int j = 0; j < subs.length; j++){
+				if(isFriends(subs[i], subs[j])) {
+					flag = true;
+					break;
 				}
 			}
+
+			if(!flag) return false;
+
 		}
+
 		return true;
+
 	}
 
 	public boolean isFriendly3(Group group) throws Exception{
 		User[] subs = data.getGroupMembers(group);
+		if(subs.length == 0) return false;
+		
+		int forRead = 0;
+		int forAdd = 1;
+		User[] q = new User[subs.length];
+		q[0] = subs[0];
+
+		while(forRead < forAdd){
+			for(User sub : subs){
+				if(isFriends(q[forRead], sub) && notInQueue(sub, q)) {
+					q[forAdd] = sub;
+					forAdd++;
+				}
+			}
+			forRead++;
+		}
+
+		if(q.length == subs.length) return true;
 		return false;
+	}
+
+	private boolean notInQueue(User user, User[] queue){
+		for(User sub : queue){
+			if(user.equals(sub)) return false;
+		}
+
+		return true;
 	}
 
 	private boolean isFriends(User user1, User user2) throws Exception{
@@ -128,13 +158,5 @@ public class Services{
 		}
 
 		return flag1&&flag2;
-	}
-
-	private boolean isMember(Group group, User user){
-		for(Members member : data.getMembers()){
-			if(member.getUser().equals(user) && member.getGroup().equals(group)) return true;
-		}
-
-		return false;
 	}
 }

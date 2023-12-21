@@ -1,5 +1,6 @@
 package storage;
 
+import java.util.Arrays;
 import models.*;
 
 public abstract class Storage implements IStorage {
@@ -53,15 +54,17 @@ public abstract class Storage implements IStorage {
 
 	public User[] getGroupMembers(Group group){
 		int count = 0;
-		User[] res = new User[count];
+		User[] res = new User[members.length];
 
 		for(Members member : members){
 			if(member.getGroup().equals(group)){
-				res = new User[++count];
 				res[count] = member.getUser();
+				count++;
 
 			}
 		}
+
+		res = Arrays.copyOf(res, count);
 
 		return res;
 	}

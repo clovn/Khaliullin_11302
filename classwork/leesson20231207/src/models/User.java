@@ -29,6 +29,10 @@ public class  User {
 	}
 
 	public boolean equals(User user){
-		return id == user.id;
+		try{
+			return id == user.id;
+		} catch(NullPointerException e){
+			return false;
+		}
 	}
 }
