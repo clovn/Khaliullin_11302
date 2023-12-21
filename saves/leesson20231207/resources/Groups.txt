@@ -1,6 +1,0 @@
-5
-1 Friends Kazan 2
-2 JingleBells Vladivostok 4
-3 CapitalOfGreatRussia Moscow 1 
-4 PeopleOfOmsk Omsk 3
-5 StackUnderFlow Smolensk 7
