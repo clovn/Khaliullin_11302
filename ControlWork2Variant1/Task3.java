@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//Var 1
 public class Task3 {
 	public static void main(String[] args){
 		Scanner console = new Scanner(System.in);
