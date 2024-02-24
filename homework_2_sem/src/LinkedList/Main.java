@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        MyLinkedList a = enterArray(10);
+        MyLinkedList a = enterSortedArray(10);
         System.out.println(a);
-        insertAfterAll(a, 2, 200);
+        removeTwo(a);
         System.out.println(a);
     }
 
@@ -24,66 +24,23 @@ public class Main {
         return list;
     }
 
-    public static int getMax(MyLinkedList list){
-        int max = list.head.data;
-        Node current = list.head;
+    public static MyLinkedList enterSortedArray(int count){
+        MyLinkedList list = new MyLinkedList();
+        Scanner scanner = new Scanner(System.in);
 
-        while (current != null) {
-            if (current.data > max) {
-                max = current.data;
-            }
-            current = current.next;
+        System.out.println("Введите элементы списка:");
+
+        for (int i = 0; i < count; i++) {
+            int num = scanner.nextInt();
+            list.addSorted(num);
         }
 
-        return max;
+        return list;
     }
 
-    public static boolean find(MyLinkedList list ,int x){
-        Node current = list.head;
-        while (current != null) {
-            if (current.data == x) {
-                return true;
-            }
-            current = current.next;
-        }
-        return false;
-    }
-
-    public static void insertAfterFirst(MyLinkedList list, int x, int y){
-        Node current = list.head;
-        int count = 0;
-        while (current != null) {
-            if (current.data == x) {
-                list.add(y, count+1);
-                return;
-            }
-            current = current.next;
-            count++;
-        }
-    }
-
-    public static void insertBeforeFirst(MyLinkedList list, int x, int y){
-        Node current = list.head;
-        int count = 0;
-        while (current != null) {
-            if (current.data == x) {
-                list.add(y, count);
-                return;
-            }
-            current = current.next;
-            count++;
-        }
-    }
-
-    public static void insertAfterAll(MyLinkedList list, int x, int y){
-        Node current = list.head;
-        int count = 0;
-        while (current != null) {
-            if (current.data == x) {
-                list.add(y, count+1);
-            }
-            current = current.next;
-            count++;
+    public static void removeTwo(MyLinkedList list){
+        for(int i = 0; i < 2; i++){
+            list.removeByIndex(0);
         }
     }
 }

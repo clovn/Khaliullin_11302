@@ -22,8 +22,7 @@ public class MyLinkedList {
 
     public void add(int data, int index) {
         if (index < 0) {
-            System.out.println("Индекс должен быть неотрицательным числом");
-            return;
+            throw new IndexOutOfBoundsException("Индекс должен быть неотрицательным числом");
         }
         Node newNode = new Node(data);
         if (index == 0) {
@@ -36,11 +35,25 @@ public class MyLinkedList {
             current = current.next;
         }
         if (current == null) {
-            System.out.println("Индекс выходит за пределы списка");
-            return;
+            throw new IndexOutOfBoundsException("Индекс выходит за пределы списка");
         }
         newNode.next = current.next;
         current.next = newNode;
+    }
+
+    public void addSorted(int data){
+        Node newNode = new Node(data);
+        if (head == null || head.data >= data) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null && current.next.data < data) {
+                current = current.next;
+            }
+            newNode.next = current.next;
+            current.next = newNode;
+        }
     }
 
     public void remove(int data){
@@ -143,6 +156,69 @@ public class MyLinkedList {
                 remove(x);
             }
             current = current.next;
+        }
+    }
+
+    public int max(){
+        int max = head.data;
+        Node current = head;
+
+        while (current != null) {
+            if (current.data > max) {
+                max = current.data;
+            }
+            current = current.next;
+        }
+
+        return max;
+    }
+
+    public boolean find(int x){
+        Node current = head;
+        while (current != null) {
+            if (current.data == x) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public void insertAfterFirst(int x, int y){
+        Node current = head;
+        int count = 0;
+        while (current != null) {
+            if (current.data == x) {
+                add(y, count+1);
+                return;
+            }
+            current = current.next;
+            count++;
+        }
+    }
+
+    public void insertBeforeFirst(int x, int y){
+        Node current = head;
+        int count = 0;
+        while (current != null) {
+            if (current.data == x) {
+                add(y, count);
+                return;
+            }
+            current = current.next;
+            count++;
+        }
+    }
+
+    public void insertAfterAll(int x, int y){
+        Node current = head;
+        int count = 0;
+        while (current != null) {
+            if (current.data == x) {
+                add(y, count+1);
+            }
+            current = current.next;
+            count++;
         }
     }
 }
