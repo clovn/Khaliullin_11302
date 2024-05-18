@@ -1,9 +1,9 @@
 package hw2.test;
 
-import org.example.MyList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import hw2.MyList;
 
 public class MyListTest {
     MyList<Integer> list = new MyList<>(20);

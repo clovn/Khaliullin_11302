@@ -65,6 +65,5 @@ public class MyList<T> {
     public T[] toArray(){
         return Arrays.copyOf(array, size);
     }
-
-//    public int
+    
 }

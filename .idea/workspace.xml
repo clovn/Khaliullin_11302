@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6221a9bb-6bbe-4af4-b192-51a38cece894" name="Changes" comment="ControlWork1-Variant2">
+      <change afterPath="$PROJECT_DIR$/ControlWork_2_sem/src/ControlWork2_var2/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ControlWork_2_sem/src/ControlWork2_var2/test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Consumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/IntStream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Optional.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Predicate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Stream.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw3/ToIntFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/homework_2_sem/src/hw5/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork2Variant1/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork2Variant1/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork2Variant1/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork2Variant1/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork2Variant1/Task2.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork2Variant1/Task2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork2Variant1/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork2Variant1/Task3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task1/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task1/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/HeadDoctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/HeadDoctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/Intern.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/Intern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/MedicalWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/MedicalWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/Surgeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/Surgeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork3Variant1/Task2/Terapevt.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_1_sem/ControlWork3Variant1/Task2/Terapevt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ControlWork_2_sem/src/ControlWork1_Var2/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/ControlWork_2_sem/src/ControlWork1_Var2/Dictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework_2_sem/src/LinkedList/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework_2_sem/src/hw1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework_2_sem/src/LinkedList/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework_2_sem/src/hw1/MyLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework_2_sem/src/hw2/MyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework_2_sem/src/hw2/MyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework_2_sem/src/hw2/test/MyListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/homework_2_sem/src/hw2/test/MyListTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2cmzPq5dnpNmdDDiYM1RLI2HGLy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/clovn/Khaliullin_11302/ControlWork_2_sem/src/ControlWork2_var2&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/clovn/Khaliullin_11302/ControlWork_2_sem/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ControlWork_2_sem/src/ControlWork2_var2" />
+      <recent name="$PROJECT_DIR$/homework_2_sem/src/hw5" />
+      <recent name="$PROJECT_DIR$/homework_2_sem/src/hw4" />
+      <recent name="$PROJECT_DIR$/homework_2_sem/src/hw3" />
+      <recent name="$PROJECT_DIR$/homework_2_sem/src/hw2" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ControlWork_1_sem" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ControlWork1_Var2" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6221a9bb-6bbe-4af4-b192-51a38cece894" name="Changes" comment="" />
+      <created>1708731520603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708731520603</updated>
+    </task>
+    <task id="LOCAL-00001" summary="hw1">
+      <option name="closed" value="true" />
+      <created>1708764187992</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708764187992</updated>
+    </task>
+    <task id="LOCAL-00002" summary="hw1 updated">
+      <option name="closed" value="true" />
+      <created>1708770903899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1708770903899</updated>
+    </task>
+    <task id="LOCAL-00003" summary="hw1 updated">
+      <option name="closed" value="true" />
+      <created>1709976461460</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709976461460</updated>
+    </task>
+    <task id="LOCAL-00004" summary="hw2 test">
+      <option name="closed" value="true" />
+      <created>1709976820556</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709976820556</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ControlWork1-Variant2">
+      <option name="closed" value="true" />
+      <created>1711197039106</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711197039106</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hw1" />
+    <MESSAGE value="hw1 updated" />
+    <MESSAGE value="hw2 test" />
+    <MESSAGE value="ControlWork1-Variant2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ControlWork1-Variant2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ControlWork_2_sem/src/main/java/org/example/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

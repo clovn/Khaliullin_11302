@@ -1,4 +1,4 @@
-package LinkedList;
+package hw1;
 
 public class MyLinkedList {
     Node head;
