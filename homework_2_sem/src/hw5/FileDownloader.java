@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -13,11 +14,11 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class FileDownloader {
-    private BlockingDeque<String> tasks;
+    private BlockingDeque<Task> tasks;
 
     private Worker[] threads;
     private AtomicBoolean isShutdown;
-    private ConcurrentMap<String, Integer> tasksInProcess = new ConcurrentHashMap<>();
+    private ConcurrentMap<Task, Integer> tasksInProcess = new ConcurrentHashMap<>();
 
     public FileDownloader(int count){
         threads = new Worker[count];
@@ -30,12 +31,12 @@ public class FileDownloader {
         }
     }
 
-    public void addToQueue(String url) throws InterruptedException {
+    public void addToQueue(String url, String path) throws InterruptedException {
         if(isShutdown.get()) {
             System.out.println("Service is shutdown");
             return;
         }
-        tasks.put(url);
+        tasks.put(new Task(url, path));
     }
 
     public void shutdown(){
@@ -49,9 +50,9 @@ public class FileDownloader {
         }
     }
 
-    public int status(String filename){
+    public int status(String path){
         try{
-            return tasksInProcess.get(filename);
+            return tasksInProcess.get(new Task(path));
         } catch (Exception e){
             throw new RuntimeException("task not in process");
         }
@@ -61,37 +62,65 @@ public class FileDownloader {
         @Override
         public void run() {
             while(!isShutdown.get() || !tasks.isEmpty()){
-                String url;
-                String fileName;
+                Task task;
 
                 try {
-                    url = tasks.take();
+                    task = tasks.take();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                String[] tmp = url.split("/");
-                fileName = tmp[tmp.length - 1];
 
-                tasksInProcess.put(fileName, 0);
+                tasksInProcess.put(task, 0);
 
-                try(BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
-                    OutputStream out = new FileOutputStream("homework_2_sem/src/hw5/files/" + fileName)) {
+                try(BufferedInputStream in = new BufferedInputStream(new URL(task.url).openStream());
+                    OutputStream out = new FileOutputStream(task.path)) {
 
-                    int countOfBytes = in.available();
-                    int count = 0;
+                    byte[] arr = in.readAllBytes();
+                    long countOfBytes = arr.length;
+                    long count = 0;
 
-                    for (byte i : in.readAllBytes()){
+                    for (byte i : arr){
                         count++;
                         out.write(i);
+                        //System.out.println((count*100)/countOfBytes);
                         if(count % 100 == 0){
-                            tasksInProcess.replace(fileName, (count*100)/countOfBytes);
+                            tasksInProcess.replace(task, (int) ((count*100)/countOfBytes));
                         }
                     }
+
+                    tasksInProcess.replace(task, 100);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
 
+        }
+    }
+
+    private class Task{
+        String url;
+        String path;
+
+        public Task(String url, String path){
+            this.url = url;
+            this.path = path;
+        }
+
+        public Task(String path){
+            this.path = path;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Task task = (Task) o;
+            return Objects.equals(path, task.path);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(path);
         }
     }
 
