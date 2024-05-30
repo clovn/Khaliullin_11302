@@ -1,22 +1,21 @@
 package hw4;
 
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DownloadFromWeb {
 
     public static void main(String[] args) throws MalformedURLException {
-        getVideo("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley");
+        getVideo("https://filesamples.com/samples/video/mp4/sample_1280x720_surfing_with_audio.mp4");
     }
     public static void getVideo(String path) throws MalformedURLException {
         URL url = new URL(path);
         try(BufferedInputStream in = new BufferedInputStream(url.openStream());
             OutputStream out = new FileOutputStream("homework_2_sem/src/hw4/vid.mp4")) {
-            for (byte i : in.readAllBytes()){
+            byte[] a = in.readAllBytes();
+            System.out.println(a.length);
+            for(byte i : a){
                 out.write(i);
             }
         } catch (IOException e) {
